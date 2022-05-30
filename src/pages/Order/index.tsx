@@ -1,14 +1,12 @@
-import React from 'react'
-
 interface Props {
   pizza: {
-    base: string
-    toppings: string[]
-  }
+    base: string;
+    toppings: string[];
+  };
 }
 
 const Order = ({ pizza }: Props) => {
-  const { base, toppings } = pizza
+  const { base, toppings } = pizza;
 
   return (
     <div className="container order">
@@ -18,7 +16,7 @@ const Order = ({ pizza }: Props) => {
         <div key={topping}>{topping}</div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Order
+export default Order;

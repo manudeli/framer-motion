@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Pizza } from "~/types";
 import { motion } from "framer-motion";
 import { selectedListStyle } from "~/motions/list";
+import { containerVariants } from "~/motions/container";
+import { nextVariants } from "~/motions/next";
 
 interface Props {
   addBase: (base: Pizza["base"]) => void;
@@ -9,14 +11,15 @@ interface Props {
 }
 
 const Base = ({ addBase, pizza }: Props) => {
-  const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
+  const bases = ["Classic", "Thin & Crispy", "Thick Crust"] as const;
 
   return (
     <motion.div
       className="base container"
-      initial={{ x: "100vw" }}
-      animate={{ x: 0 }}
-      transition={{ type: "spring" }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      whileTap="boom"
     >
       <h3>Step 1: Choose Your Base</h3>
       <ul>
@@ -39,9 +42,9 @@ const Base = ({ addBase, pizza }: Props) => {
       {pizza.base && (
         <motion.div
           className="next"
-          initial={{ x: "-100vw" }}
-          animate={{ x: 0 }}
-          transition={{ type: "spring", stiffness: 120 }}
+          variants={nextVariants}
+          initial="hidden"
+          animate="visible"
         >
           <Link to="/toppings">
             <motion.button
