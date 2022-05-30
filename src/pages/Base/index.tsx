@@ -30,7 +30,7 @@ const Base = ({ addBase, pizza }: Props) => {
               key={base}
               onClick={() => addBase(base)}
               animate={pizza.base === base ? selectedListStyle : {}}
-              whileHover={selectedListStyle}
+              whileHover={{ scale: 1.3, originX: 0, color: "#f8e112" }}
               transition={{ type: "spring", stiffness: 600 }}
             >
               <span className={spanClass}>{base}</span>
