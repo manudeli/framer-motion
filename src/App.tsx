@@ -3,8 +3,9 @@ import { Route, Routes } from 'react-router-dom'
 import '~/App.css'
 import { Base, Home, Order, Toppings } from '~/pages'
 import { Pizza } from '~/types'
+import { Header } from '~/components'
 
-function App() {
+const App = () => {
   const [pizza, setPizza] = useState<Pizza>({ base: '', toppings: [] })
 
   const handleAddBase = (base: Pizza['base']) =>
@@ -14,7 +15,8 @@ function App() {
     setPizza((prev) => ({ ...prev, toppings: [...prev.toppings, topping] }))
 
   return (
-    <div className="App">
+    <>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -27,7 +29,7 @@ function App() {
         />
         <Route path="/order" element={<Order pizza={pizza} />} />
       </Routes>
-    </div>
+    </>
   )
 }
 
