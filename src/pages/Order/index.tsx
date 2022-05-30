@@ -2,17 +2,24 @@ import { motion, Variants } from "framer-motion";
 
 const containerVariants: Variants = {
   hidden: {
-    rotateY: 300,
+    scale: 0,
+    rotateZ: 200,
+    rotateY: 100,
     opacity: 0,
     x: "50vw",
   },
   visible: {
+    scale: 1,
+    rotateZ: 0,
     rotateY: 0,
     opacity: 1,
     x: 0,
     transition: {
       type: "spring",
+      mass: 0.9,
+      damping: 18,
       when: "beforeChildren",
+      staggerChildren: 0.1,
     },
   },
   boom: {
@@ -60,11 +67,7 @@ const Order = ({ pizza }: Props) => {
       </motion.p>
       <motion.div>
         {toppings.map((topping, index) => (
-          <motion.div
-            key={topping}
-            variants={childVariants}
-            transition={{ delay: index * 0.1 }}
-          >
+          <motion.div key={topping} variants={childVariants}>
             {topping}
           </motion.div>
         ))}
