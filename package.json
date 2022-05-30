@@ -23,7 +23,9 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "type": "tsc --noEmit"
+    "commit": "cz-customizable",
+    "type": "tsc --noEmit",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +46,11 @@
     ]
   },
   "devDependencies": {
-    "craco-alias": "^3.0.1"
+    "@commitlint/cli": "^17.0.1",
+    "@commitlint/config-conventional": "^17.0.0",
+    "craco-alias": "^3.0.1",
+    "cz-customizable": "^6.3.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.3"
   }
 }
