@@ -6,7 +6,7 @@ import { Pizza } from "~/types";
 import { Header } from "~/components";
 
 const App = () => {
-  const [pizza, setPizza] = useState<Pizza>({ base: "Classic", toppings: [] });
+  const [pizza, setPizza] = useState<Pizza>({ base: "", toppings: [] });
 
   const handleAddBase = (base: Pizza["base"]) =>
     setPizza((prev) => ({ ...prev, base }));

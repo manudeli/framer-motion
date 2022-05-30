@@ -1,4 +1,4 @@
 export type Pizza = {
-  base: "Classic" | "Thin & Crispy" | "Thick Crust";
+  base: "" | "Classic" | "Thin & Crispy" | "Thick Crust";
   toppings: string[];
 };
