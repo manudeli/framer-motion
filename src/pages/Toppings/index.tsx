@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Pizza } from "~/types";
 import { motion } from "framer-motion";
-import { selectedListStyle } from "~/motions/list";
-import { containerVariants } from "~/motions/container";
+import { selectedListStyle } from "~/motions/style";
+import { containerVariants } from "~/motions/variants";
 
 interface Props {
   toggleTopping: (topping: string) => void;

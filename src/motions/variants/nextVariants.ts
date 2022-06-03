@@ -1,6 +1,6 @@
 import { Variants } from "framer-motion";
 
-export const nextVariants: Variants = {
+const nextVariants: Variants = {
   hidden: {
     x: "-100vw",
   },
@@ -9,3 +9,5 @@ export const nextVariants: Variants = {
     transition: { type: "spring", stiffness: 120 },
   },
 };
+
+export default nextVariants;

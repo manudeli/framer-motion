@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { Pizza } from "~/types";
 import { motion } from "framer-motion";
-import { selectedListStyle } from "~/motions/list";
-import { containerVariants } from "~/motions/container";
-import { nextVariants } from "~/motions/next";
+import { selectedListStyle } from "~/motions/style";
+import { containerVariants, nextVariants } from "~/motions/variants";
 
 interface Props {
   addBase: (base: Pizza["base"]) => void;

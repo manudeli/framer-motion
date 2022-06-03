@@ -1,6 +1,6 @@
 import { Variants } from "framer-motion";
 
-export const containerVariants: Variants = {
+const containerVariants: Variants = {
   hidden: {
     rotateY: 300,
     opacity: 0,
@@ -22,3 +22,5 @@ export const containerVariants: Variants = {
     },
   },
 } as const;
+
+export default containerVariants;
