@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
 import { Pizza } from "~/types";
 import { motion, Variants } from "framer-motion";
-import { selectedListStyle } from "~/motions/style";
+import { selectedListStyle } from "~/motions/targetAndTransition";
 import { buttonVariants, nextVariants } from "~/motions/variants";
+import { exit } from "~/motions/variant";
 
 const containerVariants: Variants = {
   hidden: {
-    rotateY: 300,
     opacity: 0,
     x: "50vw",
   },
   visible: {
-    rotateY: 0,
     opacity: 1,
     x: 0,
     transition: {
@@ -19,12 +18,12 @@ const containerVariants: Variants = {
     },
   },
   boom: {
-    rotateY: 0,
     scale: 0.9,
     transition: {
       type: "spring",
     },
   },
+  exit,
 } as const;
 
 interface Props {
@@ -42,6 +41,7 @@ const Base = ({ addBase, pizza }: Props) => {
       initial="hidden"
       animate="visible"
       whileTap="boom"
+      exit="exit"
     >
       <h3>Step 1: Choose Your Base</h3>
       <ul>
