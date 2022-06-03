@@ -1,14 +1,24 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { buttonVariants } from "~/motions/variants";
+
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { delay: 0.5, duration: 1.5 },
+  },
+};
 
 const Home = () => {
   return (
     <motion.div
       className="home container"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.5, duration: 1.5 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       <motion.h2>Welcome to Pizza Joint</motion.h2>
       <Link to="/base">

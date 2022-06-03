@@ -1,12 +1,31 @@
 import { Link } from "react-router-dom";
 import { Pizza } from "~/types";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { selectedListStyle } from "~/motions/style";
-import {
-  buttonVariants,
-  containerVariants,
-  nextVariants,
-} from "~/motions/variants";
+import { buttonVariants, nextVariants } from "~/motions/variants";
+
+const containerVariants: Variants = {
+  hidden: {
+    rotateY: 300,
+    opacity: 0,
+    x: "50vw",
+  },
+  visible: {
+    rotateY: 0,
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+    },
+  },
+  boom: {
+    rotateY: 0,
+    scale: 0.9,
+    transition: {
+      type: "spring",
+    },
+  },
+} as const;
 
 interface Props {
   addBase: (base: Pizza["base"]) => void;
