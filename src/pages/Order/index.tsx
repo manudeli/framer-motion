@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
+import { Pizza } from "~/types";
 
 const containerVariants: Variants = {
   hidden: {
@@ -45,18 +46,18 @@ const childVariants: Variants = {
   },
 };
 interface Props {
-  pizza: {
-    base: string;
-    toppings: string[];
-  };
+  pizza: Pizza;
+  setIsModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const Order = ({ pizza }: Props) => {
-  const [isTitle, setIsTitle] = useState(true);
+const Order = ({ pizza, setIsModal }: Props) => {
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsModal(true);
+    }, 3000);
 
-  setTimeout(() => {
-    setIsTitle(false);
-  }, 4000);
+    return () => clearTimeout(timeout);
+  }, [setIsModal]);
 
   const { base, toppings } = pizza;
 
@@ -68,11 +69,7 @@ const Order = ({ pizza }: Props) => {
       animate="visible"
     >
       <AnimatePresence>
-        {isTitle && (
-          <motion.h2 exit={{ height: 0, opacity: 0 }}>
-            Thank you for your order{" "}
-          </motion.h2>
-        )}
+        <h2>Thank you for your order </h2>
       </AnimatePresence>
       <motion.p initial="hidden" animate="visible">
         You ordered a <motion.span variants={childVariants}>{base}</motion.span>{" "}
