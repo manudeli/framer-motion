@@ -1,4 +1,5 @@
-import { motion, Variants } from "framer-motion";
+import { useState } from "react";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 
 const containerVariants: Variants = {
   hidden: {
@@ -51,6 +52,12 @@ interface Props {
 }
 
 const Order = ({ pizza }: Props) => {
+  const [isTitle, setIsTitle] = useState(true);
+
+  setTimeout(() => {
+    setIsTitle(false);
+  }, 4000);
+
   const { base, toppings } = pizza;
 
   return (
@@ -60,7 +67,13 @@ const Order = ({ pizza }: Props) => {
       initial="hidden"
       animate="visible"
     >
-      <h2>Thank you for your order </h2>
+      <AnimatePresence>
+        {isTitle && (
+          <motion.h2 exit={{ height: 0, opacity: 0 }}>
+            Thank you for your order{" "}
+          </motion.h2>
+        )}
+      </AnimatePresence>
       <motion.p initial="hidden" animate="visible">
         You ordered a <motion.span variants={childVariants}>{base}</motion.span>{" "}
         pizza with:
