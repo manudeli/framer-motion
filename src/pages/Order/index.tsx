@@ -41,7 +41,7 @@ const childVariants: Variants = {
   visible: {
     opacity: 1,
     textShadow: "0 0 8px #f8e112",
-    scale: 1.2,
+    scale: 1,
     y: 0,
   },
 };
