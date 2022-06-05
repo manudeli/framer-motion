@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion, Variants } from "framer-motion";
 import { buttonVariants } from "~/motions/variants";
 import { exit } from "~/motions/variant";
+import { Loader } from "~/components";
 
 const containerVariants: Variants = {
   hidden: {
@@ -23,6 +24,7 @@ const Home = () => {
       animate="visible"
       exit="exit"
     >
+      <Loader />
       <motion.h2>Welcome to Pizza Joint</motion.h2>
       <Link to="/base">
         <motion.button
